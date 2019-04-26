@@ -25,8 +25,8 @@ public class CardZoom : MonoBehaviour
 
         performingZoom = false;
         zoomed = false;
-
-        mainCamera = GameObject.Find("Main Camera");
+       
+        mainCamera = GameObject.FindWithTag("MainCamera");
         inFrontOfCameraPosition = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y , mainCamera.transform.position.z + 60);
         
     }

@@ -548,6 +548,7 @@ MonoBehaviour:
   m_OnlineScene: _SCENE_
   m_SpawnPrefabs:
   - {fileID: 7084053492771368080, guid: f4d1d0e4c00887c4e8e7bc1d09523d07, type: 3}
+  - {fileID: 7084053492771368080, guid: 763cf5a60fb183e4ba7e38246fb7b7d2, type: 3}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -1906,7 +1907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638efba1c3594524097fa51d7015841c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: c55d5856439d08843afcb27d8a282299, type: 2}
+  audioMixer: {fileID: 0}
 --- !u!1 &894832480
 GameObject:
   m_ObjectHideFlags: 0
