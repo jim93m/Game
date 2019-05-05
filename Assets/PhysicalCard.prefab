@@ -187,16 +187,17 @@ GameObject:
   - component: {fileID: 7084053492771368070}
   - component: {fileID: 7084053492771368071}
   - component: {fileID: 7084053492771368072}
-  - component: {fileID: 7084053492771368073}
   - component: {fileID: 7084053492771368074}
   - component: {fileID: 7084053492771368075}
+  - component: {fileID: 7084053492771368073}
   - component: {fileID: 7084053492771368076}
   - component: {fileID: 7084053492771368077}
+  - component: {fileID: 5935932932462404675}
   - component: {fileID: 7084053492771368078}
   - component: {fileID: 7084053492771368079}
   m_Layer: 0
   m_Name: PhysicalCard
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,23 +280,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7084053492771368073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7084053492771368080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd422ba539135d40835e29c5f4dc221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentToReturnTo: {fileID: 0}
-  placeholderParent: {fileID: 0}
-  PlaceholderCard: {fileID: 323030041, guid: debbe474166c17045865eb8ec1622a91, type: 3}
-  listOfObjectsToHilight: []
-  dropPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7084053492771368074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +312,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7084053492771368073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7084053492771368080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd422ba539135d40835e29c5f4dc221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentToReturnTo: {fileID: 0}
+  placeholderParent: {fileID: 0}
+  PlaceholderCard: {fileID: 323030041, guid: debbe474166c17045865eb8ec1622a91, type: 3}
+  listOfObjectsToHilight: []
+  dropPosition: {x: 0, y: 0, z: 0}
+  myCamera: {fileID: 0}
 --- !u!114 &7084053492771368076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +354,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1ed95c3b240aa147a905140f6dd43ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5935932932462404675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7084053492771368080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab993a2df856924e94533ed4883cf9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7084053492771368078

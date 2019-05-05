@@ -6,41 +6,66 @@ using UnityEngine.UI;
 
 public class CardZoom : MonoBehaviour
 {
-
-
-
+    
     float speed = 3.5f; // Speed of the zooming action
     public GameObject mainCamera ;
     Vector3 inFrontOfCameraPosition;
+    Vector3 cardsBoardPosition;
+    Quaternion inFrontOfCameraRotation;
+    Vector3 cardsBoardRotationEul;
+    Quaternion cardsBoardRotationQua;
     public bool performingZoom; 
     bool zoomed;
+      
     
-    Vector3 cardsBoardPosition;
-
-    
-
 
     // Use this for initialization
     void Start () {
 
         performingZoom = false;
         zoomed = false;
-       
-        mainCamera = GameObject.FindWithTag("MainCamera");
-        inFrontOfCameraPosition = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y , mainCamera.transform.position.z + 60);
-        
+
     }
 
-    
+    public void setCameraPosition()
+    {
+        Debug.Log("camera seted Cardzoom script");
+        
+
+        mainCamera = GameObject.FindWithTag("MainCamera");
+        inFrontOfCameraPosition = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z + 60);
+        cardsBoardRotationEul = transform.rotation.eulerAngles; // Saving the current / default roatation of the object in eulerAngles and in Quaternion, as both are needed
+        cardsBoardRotationQua = transform.rotation;
+
+
+        if (GetComponent<MultiplayerBehavior>().isLocalPlayers == false) // If the card of the runing script is NOT local players then assign a rotation for its zooming action 
+        {
+            cardsBoardRotationEul = new Vector3(cardsBoardRotationEul.x, cardsBoardRotationEul.y , cardsBoardRotationEul.z + 180);
+            
+            inFrontOfCameraRotation = Quaternion.Euler(cardsBoardRotationEul);
+                       
+        }
+        else
+        {            
+            inFrontOfCameraRotation = Quaternion.Euler(cardsBoardRotationEul);
+                       
+        }       
+        
+        
+    }
 
     public void zoomIn()
     {       
         this.transform.position = Vector3.Lerp(transform.position, inFrontOfCameraPosition, Time.deltaTime * speed);
+        this.transform.rotation = Quaternion.Lerp(transform.rotation, inFrontOfCameraRotation, Time.deltaTime * speed);
+        // transform.rotation = Quaternion.Slerp(transform.rotation, target,  Time.deltaTime * smooth);
     }
+
 
     public void zoomOut()
     {
         this.transform.position = Vector3.Lerp(transform.position, cardsBoardPosition, Time.deltaTime * speed);
+        this.transform.rotation = Quaternion.Lerp(transform.rotation, cardsBoardRotationQua, Time.deltaTime * speed);
     }
 
 
@@ -80,13 +105,11 @@ public class CardZoom : MonoBehaviour
         { // To be sure of the time that the card's zoom has ended, we could check it's speed. But this would lead in a some seconds delay, as it's speed at the end of the zoom is very small but not zero for 2 seconds
 
             performingZoom = false;
-            this.GetComponent<Draggable>().enabled = true;    // Renable the draggable script, so the card can again be druged
-
-            LayoutRebuilder.ForceRebuildLayoutImmediate(GameObject.Find("Hand").GetComponent<RectTransform>());  // Rebuild the layout so the zoomed out card is again placed under its parent
+            if (GetComponent<MultiplayerBehavior>().isLocalPlayers) { // Check if the zoomed out card is local players, for not enabling draggable script to the enemy
+                this.GetComponent<Draggable>().enabled = true;    // Renable the draggable script, so the card can again be druged
+            }
+            LayoutRebuilder.ForceRebuildLayoutImmediate(GameObject.Find("MyHand").GetComponent<RectTransform>());  // Rebuild the layout so the zoomed out card is again placed under its parent
          
-
-            // GameObject.Find("Canvas")
-            // LayoutRebuilder.ForceRebuildLayoutImmediate();
 
         }
 

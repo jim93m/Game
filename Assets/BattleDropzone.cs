@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 
 public class BattleDropzone : MonoBehaviour,IDropHandler,IPointerEnterHandler, IPointerExitHandler{
 
-
+    public int idX;
+    public int idY;
     public void OnPointerEnter(PointerEventData eventData)
     {
 
@@ -39,7 +40,7 @@ public class BattleDropzone : MonoBehaviour,IDropHandler,IPointerEnterHandler, I
 
         Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
 
-        if (d != null && d.placeholderParent.childCount<2 && d.listOfObjectsToHilight.Contains(this.gameObject) )    // Edw ginetai elenxos an to dropzone pou pas na kaneis drop tin karta anikei sta valid dropzones
+        if (d != null && d.placeholderParent.childCount<2 && d.validMoveList.Contains(this.gameObject) )    // Edw ginetai elenxos an to dropzone pou pas na kaneis drop tin karta anikei sta valid dropzones
         {
             d.parentToReturnTo = this.transform;
         }

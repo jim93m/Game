@@ -54,15 +54,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BattleDropzone.cs" />
+     <Compile Include="Assets\ButtonBehavior.cs" />
      <Compile Include="Assets\Cards\Card.cs" />
      <Compile Include="Assets\Cards\CardViz.cs" />
      <Compile Include="Assets\CardZoom.cs" />
      <Compile Include="Assets\Draggable.cs" />
-     <Compile Include="Assets\DraggableNotUsed.cs" />
      <Compile Include="Assets\Dropzone.cs" />
      <Compile Include="Assets\HandDropzone.cs" />
      <Compile Include="Assets\MainMenu.cs" />
      <Compile Include="Assets\mouseOver.cs" />
+     <Compile Include="Assets\MultiplayerBehavior.cs" />
      <Compile Include="Assets\NetworkManagerCustom.cs" />
      <Compile Include="Assets\PlayerConnection.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
@@ -111,6 +112,7 @@
      <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
      <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
      <Compile Include="Assets\SettingsMenu.cs" />
+     <Compile Include="Assets\TurnStateMachine.cs" />
      <Compile Include="Assets\UIController\Scripts\UIController.cs" />
      <Compile Include="Assets\UIController\Scripts\UIControllerStateMachine.cs" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />

@@ -20,7 +20,7 @@ public class mouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerEnter(PointerEventData eventData)
     {
         mouseOverObject = this.gameObject;
-        if (this.transform.parent.gameObject == GameObject.Find("Hand")) {
+        if (this.transform.parent.gameObject == GameObject.Find("MyHand")) {
 
           
 
@@ -34,7 +34,7 @@ public class mouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         mouseOverObject = null;
 
-        if (this.transform.parent.gameObject == GameObject.Find("Hand"))
+        if (this.transform.parent.gameObject == GameObject.Find("MyHand"))
         {
 
         
