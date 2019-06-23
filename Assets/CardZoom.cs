@@ -97,17 +97,19 @@ public class CardZoom : MonoBehaviour
         }
 
         if (Vector3.Distance(transform.position, inFrontOfCameraPosition) < 0.1f )
-        {
-            performingZoom = false;
+        {   //  && performingZoom is a pesky trick to run the code below only one time. Unfortunatelly the way that the condition is set (by using '<') will be true multiple time as udate will fire every frame
+            if (GetComponent<MultiplayerBehavior>().isLocalPlayers && performingZoom)  // With  && performingZoom we make sure that the code will execute only the first time it passes from the if above, as we set performingZoom = false afterwards.
+            { // Check if the zoomed out card is local players, for not enabling draggable script to the enemy
+                this.GetComponent<Draggable>().enabled = true;    // Renable the draggable script, so the card can again be druged
+            }
+            performingZoom = false;            
         }
 
         if (Vector3.Distance(transform.position, cardsBoardPosition) < 0.1f)  // When the distance between the zooming-out card and its starting position is very small, run the clean-up routine.
         { // To be sure of the time that the card's zoom has ended, we could check it's speed. But this would lead in a some seconds delay, as it's speed at the end of the zoom is very small but not zero for 2 seconds
 
             performingZoom = false;
-            if (GetComponent<MultiplayerBehavior>().isLocalPlayers) { // Check if the zoomed out card is local players, for not enabling draggable script to the enemy
-                this.GetComponent<Draggable>().enabled = true;    // Renable the draggable script, so the card can again be druged
-            }
+            
             LayoutRebuilder.ForceRebuildLayoutImmediate(GameObject.Find("MyHand").GetComponent<RectTransform>());  // Rebuild the layout so the zoomed out card is again placed under its parent
          
 

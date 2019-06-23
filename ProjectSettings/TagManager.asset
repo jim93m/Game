@@ -8,6 +8,7 @@ TagManager:
   - Hand
   - NetworkedObjects
   - Card
+  - BattleScene
   layers:
   - Default
   - TransparentFX

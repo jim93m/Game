@@ -57,6 +57,7 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 98ad81e9f689a492509f07e75b810aaa Unity.TextMeshPro.dll:TMPro.TMP_InputField
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TurnStateMachine
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 5fc094978ce3e3591a7500ed380d854a UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -89,6 +90,7 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 0fd6822f6177297bd0eb4d83cc7a9030 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+999549644142ce614aae7fc80c4774c9 Assembly-CSharp.dll:.ButtonBehavior
 3fbb1a5ffeb0d2dc3502a3dae62a7533 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingBehaviour
 21e871d89bbce53c038fc75ad1b7c7f3 Assembly-CSharp.dll:.NetworkManagerCustom
 4551a32e9e408e37358ac8ab9f1699b7 Assembly-CSharp.dll:.MultiplayerBehavior
@@ -170,12 +172,10 @@ a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 bd89c02c54734bc10c39b2afb3d65590 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
-92410656fd542a9f5b61d9ddcd75c92b Assembly-CSharp.dll:.PlayerConnection
+998b45255dea4fbf3630c17341a3c563 Assembly-CSharp.dll:.PlayerConnection
 d83b3968659b8b6fee528426fb9b61ca Assembly-CSharp.dll:SA.CardViz
 9ca9b56c7020d49b7655acc2ef978661 Assembly-CSharp.dll:.CardZoom
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 1d3ef4774ce8586afd8cbe0d2ff41648 Assembly-CSharp.dll:SA.Card
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TurnStateMachine
-ccfda75ec8bb5493e2fbe1bd2b3a4a69 Assembly-CSharp.dll:.ButtonBehavior

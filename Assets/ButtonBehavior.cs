@@ -2,21 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ButtonBehavior : MonoBehaviour
 {
 
-    public Button basicButton;
+    public Button actionButton;
     
     void Start()
     {
-        basicButton.onClick.AddListener(TaskOnClick);
+        addListener();
 
+    }
+
+    public void addListener()
+    {
+        actionButton.onClick.AddListener(TaskOnClick);
     }
 
     void TaskOnClick()
     {
-        GameObject.Find("MyConnection").GetComponent<TurnStateMachine>().CmdNextTurnState();
+        Debug.Log("The button have been pushed " );
+        GameObject.Find("MyConnection").GetComponent<PlayerConnection>().CmdNextTurnState();
+
 
     }
 }

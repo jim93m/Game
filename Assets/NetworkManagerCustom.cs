@@ -43,7 +43,7 @@ public class NetworkManagerCustom : NetworkManager
         
         GameObject[] playerList = GameObject.FindGameObjectsWithTag("PlayerObject");
 
-        Debug.Log("List length" + playerList.Length);
+        //Debug.Log("List length" + playerList.Length);
         foreach (GameObject player in playerList)
         {
 
@@ -97,8 +97,10 @@ public class NetworkManagerCustom : NetworkManager
         }
         else if (level == 1)
         {
+
             
-            SetupOtherSceneButtons();
+
+         //   SetupOtherSceneButtons();
 
             
                        
@@ -117,7 +119,7 @@ public class NetworkManagerCustom : NetworkManager
         GameObject.Find("JoinGameButton").GetComponent<Button>().onClick.AddListener(JoinGame);
     }
 
-    void SetupOtherSceneButtons()
+    public void SetupOtherSceneButtons()
     {
         GameObject.Find("DisconnectButton").GetComponent<Button>().onClick.RemoveAllListeners();
         GameObject.Find("DisconnectButton").GetComponent<Button>().onClick.AddListener(NetworkManager.singleton.StopHost);
