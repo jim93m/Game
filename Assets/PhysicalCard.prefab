@@ -91,10 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214bdd0e791e5124f8d446a975a76339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 7084053491407102500}
-  defense: {fileID: 7084053493182126817}
-  armor: {fileID: 7084053492806688744}
-  morale: {fileID: 7084053492873645157}
+  attack: 3
+  defense: 2
+  armor: 2
+  morale: 8
+  movement: 1
   card: {fileID: 11400000, guid: 94aade9e0d4716745a5b1856abdac697, type: 2}
 --- !u!1 &7084053491407102502
 GameObject:
@@ -327,7 +328,7 @@ MonoBehaviour:
   parentToReturnTo: {fileID: 0}
   placeholderParent: {fileID: 0}
   PlaceholderCard: {fileID: 323030041, guid: debbe474166c17045865eb8ec1622a91, type: 3}
-  listOfObjectsToHilight: []
+  validMoveList: []
   dropPosition: {x: 0, y: 0, z: 0}
   myCamera: {fileID: 0}
 --- !u!114 &7084053492771368076
@@ -368,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab993a2df856924e94533ed4883cf9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLocalPlayers: 0
 --- !u!114 &7084053492771368078
 MonoBehaviour:
   m_ObjectHideFlags: 0

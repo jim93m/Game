@@ -9,6 +9,7 @@ TagManager:
   - NetworkedObjects
   - Card
   - BattleScene
+  - DropZone
   layers:
   - Default
   - TransparentFX

@@ -108,9 +108,24 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 validMoveList.Add(GameObject.Find("Tabletop " + (draggedObjectParentRow + 1).ToString() + (draggedObjectParentColumn + 1).ToString()));
             }
 
-            
+            //  We reference the game object that the script runs. From there we get it's only child and access its script to get the getRemainingMovement value
+            if (this.gameObject.transform.GetChild(0).GetComponent<CardViz>().getRemainingMovement() <= 0)
+            {
+                validMoveList.Clear();  // We check if there is no remaining movement left for the card and if so, we empty the list of valid moves
+            }
+
+            for (int i = validMoveList.Count - 1; i >= 0; i--) // Loops the validmoves from the end to the start in order to remove any dropzones are already occupied from other cards.
+            {  // We loop that way, as validMoveList is a list, and you can not remove elements from a list while itterating 
+                if (validMoveList[i].transform.childCount > 0)
+                {
+                    validMoveList.Remove(validMoveList[i]);
+
+                }
+            }
+
+
         }
-        foreach (GameObject dropzone in validMoveList) // Loop through all objects in highlight list and highlight them
+        foreach (GameObject dropzone in validMoveList) // Loop through all objects in validMoveList and highlight them
         {
             
             dropzone.transform.GetComponent<Image>().color = new Color32(153, 255, 153, 150);
@@ -159,15 +174,9 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnEndDrag(PointerEventData eventData)
     {
 
-        foreach (var theGameObject in validMoveList) // Loop through all objects in highlight list and highlight them
-        {
-          //  Debug.Log("####   "+ theGameObject);
-        }
-
-        this.transform.SetParent(parentToReturnTo); // "Drops" the card on a certain drop zone, which is her current parent. 
+        this.transform.SetParent(parentToReturnTo); // "Drops" the card on a certain drop zone, which is it's current parent. 
         GameObject.Find("MyConnection").GetComponent<PlayerConnection>().setParent(this.transform, parentToReturnTo);  // Try todo it throught the net
-
-        
+               
         // Clean up phase
         this.transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
         GetComponent<CanvasGroup>().blocksRaycasts = true;

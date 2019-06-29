@@ -43,6 +43,11 @@ public class BattleDropzone : MonoBehaviour,IDropHandler,IPointerEnterHandler, I
         if (d != null && d.placeholderParent.childCount<2 && d.validMoveList.Contains(this.gameObject) )    // Edw ginetai elenxos an to dropzone pou pas na kaneis drop tin karta anikei sta valid dropzones
         {
             d.parentToReturnTo = this.transform;
+
+           
+            d.gameObject.transform.GetChild(0).GetComponent<CardViz>().decreaseRemainingMovementBy1();  // Decrease moved cards remaining movement by 1
+            
+
         }
 
     }

@@ -470,12 +470,13 @@ public class PlayerConnection : NetworkBehaviour
         }
         GameObject.Find("ActionButtonText").GetComponent<TextMeshProUGUI>().text = "BATTLE";
 
-        GameObject[] cards = GameObject.FindGameObjectsWithTag("Card"); // For all cards in the game that belong to the local player, enable their draggable component 
+        GameObject[] cards = GameObject.FindGameObjectsWithTag("Card"); // For all cards in the game that belong to the local player, enable their draggable component, and reset it's remaining movement
         foreach (GameObject card in cards)
         {
             if (card.GetComponent<MultiplayerBehavior>().isLocalPlayers)
             {
                 card.GetComponent<Draggable>().enabled = true;
+                card.transform.GetChild(0).GetComponent<CardViz>().resetRemainingMovement();
             }
         }
         GameObject.Find("ActionButton").GetComponent<Button>().onClick.RemoveAllListeners();
@@ -551,6 +552,7 @@ public class PlayerConnection : NetworkBehaviour
         }
 
         Debug.Log(" RpcChangeTurnStateBattle has been called");
+        CmdCalculateBattle();
         CmdSetTurnState(TurnStates.PLAYERACTIONS2);
 
         CmdNextTurnState();
@@ -632,6 +634,160 @@ public class PlayerConnection : NetworkBehaviour
 
         CmdNextTurnState();
     }
+
+    public class Coordinates
+    {
+        public int x;
+        public int y;
+        public bool equals(Coordinates coordinates)
+        {
+            if (x == coordinates.x && y == coordinates.y)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    public class EngagedCouple
+    {
+        public GameObject dropzoneA;
+        public GameObject dropzoneB;
+        public EngagedCouple(GameObject a, GameObject b)
+        {
+            dropzoneA = a;
+            dropzoneB = b;
+        }
+    }
+
+    [Command]
+    public void CmdCalculateBattle()
+    {
+        IList<EngagedCouple> engagedDropzoneList = findEngagedDropzones();
+        executeFighting(engagedDropzoneList);
+        cleanUpRetreatedCards();
+    }
+
+    public IList<EngagedCouple> findEngagedDropzones()
+    {
+        IList<Coordinates> coordinateList = new List<Coordinates>();
+        IList<GameObject> occupiedDropzoneList = new List<GameObject>();
+        IList<EngagedCouple> engagedDropzoneList = new List<EngagedCouple>();
+
+        GameObject[] dropzones = GameObject.FindGameObjectsWithTag("DropZone");
+        foreach (GameObject dropzone in dropzones)
+        {
+            if (dropzone.transform.childCount > 0) // Checking if the current dropzone is occupied. Anything we plan to do considers only the occupied dropzones
+            {
+                Coordinates coordinate = new Coordinates();
+                coordinate.x = dropzone.GetComponent<BattleDropzone>().idX;
+                coordinate.y = dropzone.GetComponent<BattleDropzone>().idY;
+                coordinateList.Add(coordinate);
+
+                occupiedDropzoneList.Add(dropzone);
+
+                GameObject dropzoneBellow = GameObject.Find("Tabletop " + (coordinate.y - 1).ToString() + coordinate.x.ToString()); // Attempt to find the dropzone bellow the current dropzone
+                if (dropzoneBellow != null)
+                { // Check to see if it is found. We do this as the dropzones of the first row, won't be having any dropzones bellow
+                    if (dropzoneBellow.transform.childCount > 0) // if the dropzone bellow is also occupied
+                    {
+                        // Here we have also to check if the 2 cards belong to enemy players
+                        EngagedCouple engagedCouple = new EngagedCouple(dropzone, dropzoneBellow);
+                        engagedDropzoneList.Add(engagedCouple);  // Save the dropzones containing engaged cards
+
+                    }
+                }
+            }
+
+        }
+        return engagedDropzoneList;
+    }
+
+    public void executeFighting(IList<EngagedCouple> engagedDropzoneList)
+    {
+        foreach (EngagedCouple engagedCouple in engagedDropzoneList)  // For each engaged couple
+        {
+            GameObject cardA = engagedCouple.dropzoneA.transform.GetChild(0).gameObject;
+            GameObject cardB = engagedCouple.dropzoneB.transform.GetChild(0).gameObject;
+            // We access their stats
+            int attackA = cardA.transform.GetChild(0).GetComponent<CardViz>().getAttack();
+            int defenceA = cardA.transform.GetChild(0).GetComponent<CardViz>().getDefense();
+            int armorA = cardA.transform.GetChild(0).GetComponent<CardViz>().getArmor();
+            int moraleA = cardA.transform.GetChild(0).GetComponent<CardViz>().getMorale();
+
+            int attackB = cardB.transform.GetChild(0).GetComponent<CardViz>().getAttack();
+            int defenceB = cardB.transform.GetChild(0).GetComponent<CardViz>().getDefense();
+            int armorB = cardB.transform.GetChild(0).GetComponent<CardViz>().getArmor();
+            int moraleB = cardB.transform.GetChild(0).GetComponent<CardViz>().getMorale();
+
+
+            int damageDealtToB = 0;  // damageDealtToB is going to hold the total damage that will be dealt to card B
+            int damageDealtToA = 0;
+            for (int i = 0; i < attackA; i++)  // We create random numbers (0-6) as a dice trow, times the attack stat of the card
+            {
+                int attackAttempt = Random.Range(1, 6);
+                if (attackAttempt >= (defenceB + armorB))  // And then for each dice that's equal or higher to the sum of defence and armor stats, we add 1 damage to be assign to the other card
+                {
+                    damageDealtToB++;
+                }
+            }
+            moraleB = moraleB - damageDealtToB;
+
+            for (int i = 0; i < attackB; i++)
+            {
+                int attackAttempt = Random.Range(1, 6);
+                if (attackAttempt >= (defenceA + armorA))
+                {
+                    damageDealtToA++;
+                }
+            }
+            moraleA = moraleA - damageDealtToA;
+
+            cardA.transform.GetChild(0).GetComponent<CardViz>().setMorale(moraleA);   // ! At this point we assign localy the new morales of the cards, as althought we send an rpc that will also be recieved from the server,
+            cardB.transform.GetChild(0).GetComponent<CardViz>().setMorale(moraleB);   //  it will happen with a delay, as it's networked, and until then the server will have already access the morales yet again, and won't
+                                                                                      //  have the updated values
+            GameObject[] playerList = GameObject.FindGameObjectsWithTag("PlayerObject");
+            foreach (GameObject player in playerList)
+            {
+                player.GetComponent<PlayerConnection>().RpcSyncCard(cardA.name, moraleA);  // We send the rpcs to update the values of the cards
+                player.GetComponent<PlayerConnection>().RpcSyncCard(cardB.name, moraleB);
+            }
+        }
+
+    }
+
+        public void cleanUpRetreatedCards()
+    {
+        GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");
+        foreach (GameObject card in cards)
+        {
+            if (card.transform.GetChild(0).GetComponent<CardViz>().getMorale() <= 0)  // For each card we check if it has a morale <= 0, to remove it from the game
+            {
+                GameObject[] playerList = GameObject.FindGameObjectsWithTag("PlayerObject");
+                foreach (GameObject player in playerList)
+                {
+                    player.GetComponent<PlayerConnection>().RpcCardRemoveFromGame(card.name);
+
+                }
+
+            }
+        }
+    }
+    [ClientRpc]
+    public void RpcSyncCard(string cardName, int morale)  // Updating the card values on the clients
+    {
+        GameObject card = GameObject.Find(cardName);
+        card.transform.GetChild(0).GetComponent<CardViz>().setMorale(morale);
+    }
+    [ClientRpc]
+    public void RpcCardRemoveFromGame(string cardName)  // Removing a card from the battlefield
+    {
+        GameObject card = GameObject.Find(cardName);
+        card.transform.SetParent(GameObject.Find("OffGameSpace").transform);
+    }
+
 
 
 }

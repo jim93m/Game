@@ -173,9 +173,9 @@ bd89c02c54734bc10c39b2afb3d65590 Assembly-CSharp.dll:UnityEngine.PostProcessing.
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 998b45255dea4fbf3630c17341a3c563 Assembly-CSharp.dll:.PlayerConnection
-d83b3968659b8b6fee528426fb9b61ca Assembly-CSharp.dll:SA.CardViz
+d7f11b3155ca202cda8dcb74c0355ddb Assembly-CSharp.dll:.CardViz
 9ca9b56c7020d49b7655acc2ef978661 Assembly-CSharp.dll:.CardZoom
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-1d3ef4774ce8586afd8cbe0d2ff41648 Assembly-CSharp.dll:SA.Card
+92d2a2ccbc6bb87ab82e017061bf1f3f Assembly-CSharp.dll:.Card

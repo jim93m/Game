@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 22457077}
   m_Layer: 5
   m_Name: Tabletop 51
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 28072851}
   m_Layer: 5
   m_Name: Tabletop 53
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 35128116}
   m_Layer: 5
   m_Name: Tabletop 16
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -811,7 +811,7 @@ GameObject:
   - component: {fileID: 78766469}
   m_Layer: 5
   m_Name: Tabletop 17
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1120,7 +1120,7 @@ GameObject:
   - component: {fileID: 127072783}
   m_Layer: 5
   m_Name: Tabletop 68
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 145123870}
   m_Layer: 5
   m_Name: Tabletop 58
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 162242790}
   m_Layer: 5
   m_Name: Tabletop 43
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1561,7 +1561,7 @@ GameObject:
   - component: {fileID: 193001482}
   m_Layer: 5
   m_Name: Tabletop 69
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 260126181}
   m_Layer: 5
   m_Name: Tabletop 13
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1855,7 +1855,7 @@ GameObject:
   - component: {fileID: 268743327}
   m_Layer: 5
   m_Name: Tabletop 61
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2002,7 +2002,7 @@ GameObject:
   - component: {fileID: 282031348}
   m_Layer: 5
   m_Name: Tabletop 47
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2228,7 +2228,7 @@ GameObject:
   - component: {fileID: 295504247}
   m_Layer: 5
   m_Name: Tabletop 67
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2375,7 +2375,7 @@ GameObject:
   - component: {fileID: 302912572}
   m_Layer: 5
   m_Name: Tabletop 49
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2506,6 +2506,138 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!1 &316535132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 316535133}
+  - component: {fileID: 316535137}
+  - component: {fileID: 316535136}
+  - component: {fileID: 316535135}
+  - component: {fileID: 316535134}
+  m_Layer: 5
+  m_Name: OffGameSpace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &316535133
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316535132}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 13.379517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 985787572}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -809, y: 61}
+  m_SizeDelta: {x: 80, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &316535134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316535132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &316535135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316535132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -405508275, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: -0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+--- !u!114 &316535136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316535132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 0
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &316535137
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316535132}
+  m_CullTransparentMesh: 0
 --- !u!1 &321420871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,7 +2654,7 @@ GameObject:
   - component: {fileID: 321420877}
   m_Layer: 5
   m_Name: Tabletop 26
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3030,7 +3162,7 @@ GameObject:
   - component: {fileID: 594225703}
   m_Layer: 5
   m_Name: Tabletop 23
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3177,7 +3309,7 @@ GameObject:
   - component: {fileID: 609338603}
   m_Layer: 5
   m_Name: Tabletop 12
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3324,7 +3456,7 @@ GameObject:
   - component: {fileID: 612826388}
   m_Layer: 5
   m_Name: Tabletop 59
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3540,7 +3672,7 @@ GameObject:
   - component: {fileID: 654632871}
   m_Layer: 5
   m_Name: Tabletop 29
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3866,7 +3998,7 @@ GameObject:
   - component: {fileID: 738172776}
   m_Layer: 5
   m_Name: Tabletop 38
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4124,7 +4256,7 @@ GameObject:
   - component: {fileID: 839110176}
   m_Layer: 5
   m_Name: Tabletop 15
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4271,7 +4403,7 @@ GameObject:
   - component: {fileID: 873754695}
   m_Layer: 5
   m_Name: Tabletop 52
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4418,7 +4550,7 @@ GameObject:
   - component: {fileID: 886727191}
   m_Layer: 5
   m_Name: Tabletop 22
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4565,7 +4697,7 @@ GameObject:
   - component: {fileID: 897578346}
   m_Layer: 5
   m_Name: Tabletop 14
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4712,7 +4844,7 @@ GameObject:
   - component: {fileID: 902309073}
   m_Layer: 5
   m_Name: Tabletop 78
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4978,6 +5110,7 @@ Transform:
   - {fileID: 1666850801}
   - {fileID: 737548610}
   - {fileID: 1169808130}
+  - {fileID: 316535133}
   m_Father: {fileID: 1691136809}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4997,7 +5130,7 @@ GameObject:
   - component: {fileID: 996222970}
   m_Layer: 5
   m_Name: Tabletop 71
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5381,7 +5514,7 @@ GameObject:
   - component: {fileID: 1053717877}
   m_Layer: 5
   m_Name: Tabletop 57
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5528,7 +5661,7 @@ GameObject:
   - component: {fileID: 1057217783}
   m_Layer: 5
   m_Name: Tabletop 79
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5675,7 +5808,7 @@ GameObject:
   - component: {fileID: 1085904121}
   m_Layer: 5
   m_Name: Tabletop 65
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5822,7 +5955,7 @@ GameObject:
   - component: {fileID: 1120827246}
   m_Layer: 5
   m_Name: Tabletop 72
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6131,7 +6264,7 @@ GameObject:
   - component: {fileID: 1152868414}
   m_Layer: 5
   m_Name: Tabletop 46
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6439,7 +6572,7 @@ GameObject:
   - component: {fileID: 1247599134}
   m_Layer: 5
   m_Name: Tabletop 55
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6586,7 +6719,7 @@ GameObject:
   - component: {fileID: 1320153182}
   m_Layer: 5
   m_Name: Tabletop 18
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6733,7 +6866,7 @@ GameObject:
   - component: {fileID: 1385287779}
   m_Layer: 5
   m_Name: Tabletop 35
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6880,7 +7013,7 @@ GameObject:
   - component: {fileID: 1385992080}
   m_Layer: 5
   m_Name: Tabletop 73
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7221,7 +7354,7 @@ GameObject:
   - component: {fileID: 1456999729}
   m_Layer: 5
   m_Name: Tabletop 33
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7368,7 +7501,7 @@ GameObject:
   - component: {fileID: 1457639876}
   m_Layer: 5
   m_Name: Tabletop 34
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7515,7 +7648,7 @@ GameObject:
   - component: {fileID: 1540793654}
   m_Layer: 5
   m_Name: Tabletop 45
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7662,7 +7795,7 @@ GameObject:
   - component: {fileID: 1553587722}
   m_Layer: 5
   m_Name: Tabletop 21
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7809,7 +7942,7 @@ GameObject:
   - component: {fileID: 1563220225}
   m_Layer: 5
   m_Name: Tabletop 62
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7956,7 +8089,7 @@ GameObject:
   - component: {fileID: 1568178282}
   m_Layer: 5
   m_Name: Tabletop 76
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8103,7 +8236,7 @@ GameObject:
   - component: {fileID: 1574780272}
   m_Layer: 5
   m_Name: Tabletop 56
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8250,7 +8383,7 @@ GameObject:
   - component: {fileID: 1575834882}
   m_Layer: 5
   m_Name: Tabletop 32
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8397,7 +8530,7 @@ GameObject:
   - component: {fileID: 1582308619}
   m_Layer: 5
   m_Name: Tabletop 74
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8544,7 +8677,7 @@ GameObject:
   - component: {fileID: 1593323736}
   m_Layer: 5
   m_Name: Tabletop 42
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9228,7 +9361,7 @@ GameObject:
   - component: {fileID: 1709974605}
   m_Layer: 5
   m_Name: Tabletop 36
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9375,7 +9508,7 @@ GameObject:
   - component: {fileID: 1726058482}
   m_Layer: 5
   m_Name: Tabletop 63
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9522,7 +9655,7 @@ GameObject:
   - component: {fileID: 1727978271}
   m_Layer: 5
   m_Name: Tabletop 24
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9688,7 +9821,7 @@ GameObject:
   - component: {fileID: 1768449063}
   m_Layer: 5
   m_Name: Tabletop 27
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9835,7 +9968,7 @@ GameObject:
   - component: {fileID: 1798218916}
   m_Layer: 5
   m_Name: Tabletop 77
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9982,7 +10115,7 @@ GameObject:
   - component: {fileID: 1815928770}
   m_Layer: 5
   m_Name: Tabletop 75
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10278,7 +10411,7 @@ GameObject:
   - component: {fileID: 1942736010}
   m_Layer: 5
   m_Name: Tabletop 37
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10425,7 +10558,7 @@ GameObject:
   - component: {fileID: 1945796043}
   m_Layer: 5
   m_Name: Tabletop 41
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10572,7 +10705,7 @@ GameObject:
   - component: {fileID: 1946501186}
   m_Layer: 5
   m_Name: Tabletop 25
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10719,7 +10852,7 @@ GameObject:
   - component: {fileID: 1964794041}
   m_Layer: 5
   m_Name: Tabletop 64
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10866,7 +10999,7 @@ GameObject:
   - component: {fileID: 1966414189}
   m_Layer: 5
   m_Name: Tabletop 11
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11013,7 +11146,7 @@ GameObject:
   - component: {fileID: 1998869375}
   m_Layer: 5
   m_Name: Tabletop 19
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11160,7 +11293,7 @@ GameObject:
   - component: {fileID: 1999675774}
   m_Layer: 5
   m_Name: Tabletop 39
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11307,7 +11440,7 @@ GameObject:
   - component: {fileID: 2005827398}
   m_Layer: 5
   m_Name: Tabletop 31
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11454,7 +11587,7 @@ GameObject:
   - component: {fileID: 2044615692}
   m_Layer: 5
   m_Name: Tabletop 28
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11601,7 +11734,7 @@ GameObject:
   - component: {fileID: 2070080466}
   m_Layer: 5
   m_Name: Tabletop 44
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11748,7 +11881,7 @@ GameObject:
   - component: {fileID: 2070505253}
   m_Layer: 5
   m_Name: Tabletop 66
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11895,7 +12028,7 @@ GameObject:
   - component: {fileID: 2090844598}
   m_Layer: 5
   m_Name: Tabletop 48
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12143,7 +12276,7 @@ GameObject:
   - component: {fileID: 2120812270}
   m_Layer: 5
   m_Name: Tabletop 54
-  m_TagString: Untagged
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

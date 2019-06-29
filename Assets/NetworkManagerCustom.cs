@@ -39,14 +39,13 @@ public class NetworkManagerCustom : NetworkManager
 
     public void startGame()
     {
-        Debug.Log("waiting");
-        
+               
         GameObject[] playerList = GameObject.FindGameObjectsWithTag("PlayerObject");
 
         //Debug.Log("List length" + playerList.Length);
         foreach (GameObject player in playerList)
         {
-
+            Debug.Log("**************  RpcStartGame on Player ");
             player.GetComponent<PlayerConnection>().RpcStartGame();
         }
     }
