@@ -10,6 +10,8 @@ TagManager:
   - Card
   - BattleScene
   - DropZone
+  - CardValues
+  - WinnerText
   layers:
   - Default
   - TransparentFX

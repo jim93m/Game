@@ -552,7 +552,7 @@ public class PlayerConnection : NetworkBehaviour
         }
 
         Debug.Log(" RpcChangeTurnStateBattle has been called");
-        CmdCalculateBattle();
+        CmdCalculateBattle();   
         CmdSetTurnState(TurnStates.PLAYERACTIONS2);
 
         CmdNextTurnState();
@@ -669,7 +669,99 @@ public class PlayerConnection : NetworkBehaviour
         executeFighting(engagedDropzoneList);
         cleanUpRetreatedCards();
     }
+    [Command]
+    public void CmdCheckForWinners()
+    {
+        GameObject[] playerList = GameObject.FindGameObjectsWithTag("PlayerObject");
+        string message = "";
 
+        int cardsOfPlayerHost = countPlayersInGameCards("Host");
+        int cardsOfPlayerClient = countPlayersInGameCards("Client");
+
+        if (cardsOfPlayerHost == 0 && cardsOfPlayerClient > 0)
+        {
+            message = "Client";
+        }
+        else if (cardsOfPlayerClient == 0 && cardsOfPlayerHost > 0)
+        {
+            message = "Host";
+        }
+        else if (cardsOfPlayerClient == 0 && cardsOfPlayerHost == 0)
+        {
+            message = "Draw";
+        }
+
+        if (message != "")  // if the message is not empty, which means one of the above conditions is true, then execute RpcEndGame
+        {
+            foreach (GameObject player in playerList)
+            {
+                player.GetComponent<PlayerConnection>().RpcEndGame(message);
+
+                Invoke("RpcDisconnect", 4);                               
+                
+            }
+        }
+    }
+    [ClientRpc]
+    public void RpcDisconnect()
+    {
+        if (isLocalPlayer == false)
+        {
+            return;
+        }
+        if (isServer)
+        {
+            NetworkManager.singleton.StopHost();
+        }
+        else
+        {
+            NetworkManager.singleton.StopClient();
+        }
+    }
+
+    public int countPlayersInGameCards(string player)
+    {
+        int countOfPlayerCards = 0;
+        GameObject[] cardsValues = GameObject.FindGameObjectsWithTag("CardValues");  // Find all cardsValues objects and first check if they are in game, and second to which player they belong
+
+        foreach (GameObject cardValues in cardsValues)
+        {
+            if (cardValues.GetComponent<CardViz>().inGame == true)
+            {
+                if (cardValues.GetComponent<CardViz>().player == player)
+                {
+                    countOfPlayerCards++;
+                }                
+            }
+        }
+        return countOfPlayerCards;
+    }
+    [ClientRpc]
+    public void RpcEndGame(string winner)
+    {
+        if (isLocalPlayer == false)
+        {
+            return;
+        }
+
+        Debug.Log("Winner - " + winner);
+        GameObject winnerLabel = findDisabledObject( GameObject.Find("UI"), "WinnerText");  // Finds the disabled textbox 
+        winnerLabel.SetActive(true);  // Activates it so its visible
+        GameObject.FindGameObjectWithTag("WinnerText").GetComponent<TextMeshProUGUI>().text = "Winner - " + winner;  // Writes a message on the textbox
+    }
+    public GameObject findDisabledObject(GameObject parent, string name)  // This is a method which finds a diasabled object by taking as arguments its parent and its name. 
+    {  // The reason that we do that is that unity does not support a search for disabled objects
+
+        Transform[] trs = parent.GetComponentsInChildren<Transform>(true);  // Find all children grandchildren and so on of the parent object 
+        foreach (Transform t in trs)  // And then looping through all of them, find the object by chcking its name
+        {
+            if (t.name == name)
+            {
+                return t.gameObject;
+            }
+        }
+        return null;
+    }
     public IList<EngagedCouple> findEngagedDropzones()
     {
         IList<Coordinates> coordinateList = new List<Coordinates>();
@@ -758,7 +850,7 @@ public class PlayerConnection : NetworkBehaviour
 
     }
 
-        public void cleanUpRetreatedCards()
+    public void cleanUpRetreatedCards()
     {
         GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");
         foreach (GameObject card in cards)
@@ -778,14 +870,25 @@ public class PlayerConnection : NetworkBehaviour
     [ClientRpc]
     public void RpcSyncCard(string cardName, int morale)  // Updating the card values on the clients
     {
+        if (isLocalPlayer == false)
+        {
+            return;
+        }
         GameObject card = GameObject.Find(cardName);
         card.transform.GetChild(0).GetComponent<CardViz>().setMorale(morale);
     }
     [ClientRpc]
     public void RpcCardRemoveFromGame(string cardName)  // Removing a card from the battlefield
     {
+        if (isLocalPlayer == false)
+        {
+            return;
+        }
         GameObject card = GameObject.Find(cardName);
-        card.transform.SetParent(GameObject.Find("OffGameSpace").transform);
+        card.transform.GetChild(0).GetComponent<CardViz>().inGame = false;  // The inGame variable is from now and on false
+        card.transform.SetParent(GameObject.Find("OffGameSpace").transform);  // The removed card is physicaly placed on a game object out the camera's view
+
+        CmdCheckForWinners();
     }
 
 

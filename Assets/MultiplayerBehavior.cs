@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class MultiplayerBehavior : NetworkBehaviour
 {
     public bool isLocalPlayers;
-    // Start is called before the first frame update
+    public string player;
     void Start()
     {
         if (!hasAuthority)
@@ -15,11 +15,30 @@ public class MultiplayerBehavior : NetworkBehaviour
             Debug.Log("-----------NOT LOCAL PLAYER CARD");
             GetComponent<Draggable>().enabled = false;
             isLocalPlayers = false; //A very important variable with public access that keeps the information weather the object belongs to the local player
+
+            if (isServer)
+            {
+                player = "Client";
+            }
+            else
+            {
+                player = "Host";
+            }
+
         }
         else
         {
             Debug.Log("-----------LOCAL PLAYER CARD");
             isLocalPlayers = true;
+
+            if (isServer)
+            {
+                player = "Host";
+            }
+            else
+            {
+                player = "Client";
+            }
         }
     }
 

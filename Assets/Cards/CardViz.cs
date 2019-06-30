@@ -11,6 +11,9 @@ public class CardViz : MonoBehaviour
     public int morale;
     public int movement;
     public int remainingMovement;
+    public bool isLocalPlayers;
+    public string player; 
+    public bool inGame;
 
     public Card card;
 
@@ -21,6 +24,11 @@ public class CardViz : MonoBehaviour
         this.gameObject.transform.Find("armorText").gameObject.GetComponent<UnityEngine.UI.Text>().text = armor.ToString();
         this.gameObject.transform.Find("moraleText").gameObject.GetComponent<UnityEngine.UI.Text>().text = morale.ToString();
         remainingMovement = movement;
+        inGame = true;
+
+        isLocalPlayers = this.transform.parent.gameObject.GetComponent<MultiplayerBehavior>().isLocalPlayers;
+        player = this.transform.parent.gameObject.GetComponent<MultiplayerBehavior>().player;
+
 
         //LoadCard(card);
     }
