@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/Jim/Desktop/GameBuild/MyFirstGame.exe
+C:/Users/Jim/Desktop/Game/Builds/Windows/GameV1.3/MyFirstGame.exe
 SceneListBegin?
 Assets/Menu.unity
 Assets/_SCENE_.unity
@@ -172,7 +172,7 @@ a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 bd89c02c54734bc10c39b2afb3d65590 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
-998b45255dea4fbf3630c17341a3c563 Assembly-CSharp.dll:.PlayerConnection
+551d7934b3eb1d081c9c1b5ddb1faf1b Assembly-CSharp.dll:.PlayerConnection
 0000dbfdc1af24fceb86a98d44bbd06c Assembly-CSharp.dll:.CardViz
 9ca9b56c7020d49b7655acc2ef978661 Assembly-CSharp.dll:.CardZoom
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro

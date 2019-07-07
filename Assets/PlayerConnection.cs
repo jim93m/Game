@@ -151,9 +151,11 @@ public class PlayerConnection : NetworkBehaviour
         }
         NetworkInstanceId handNetId = GameObject.Find("MyHand").GetComponent<NetworkIdentity>().netId;
         CmdSpawnMyUnit(faction, handNetId);
+        CmdSpawnMyUnit(faction, handNetId);
+        CmdSpawnMyUnit(faction, handNetId);
 
-     //   GameObject.Find("MyConnection").GetComponent<NetworkIdentity>().RemoveClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
-    //    GameObject.Find("MyConnection").GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
+        //   GameObject.Find("MyConnection").GetComponent<NetworkIdentity>().RemoveClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
+        //    GameObject.Find("MyConnection").GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
 
     }
 
@@ -212,6 +214,8 @@ public class PlayerConnection : NetworkBehaviour
 
     public GameObject Card;
     public GameObject Card2;
+    public GameObject Card3;
+    public GameObject Card4;
 
 
     [Command]
@@ -843,8 +847,8 @@ public class PlayerConnection : NetworkBehaviour
             GameObject[] playerList = GameObject.FindGameObjectsWithTag("PlayerObject");
             foreach (GameObject player in playerList)
             {
-                player.GetComponent<PlayerConnection>().RpcSyncCard(cardA.name, moraleA);  // We send the rpcs to update the values of the cards
-                player.GetComponent<PlayerConnection>().RpcSyncCard(cardB.name, moraleB);
+                player.GetComponent<PlayerConnection>().RpcSyncCard(cardA.GetComponent<NetworkIdentity>().netId, moraleA);  // We send the rpcs to update the values of the cards
+                player.GetComponent<PlayerConnection>().RpcSyncCard(cardB.GetComponent<NetworkIdentity>().netId, moraleB);
             }
         }
 
@@ -855,36 +859,38 @@ public class PlayerConnection : NetworkBehaviour
         GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");
         foreach (GameObject card in cards)
         {
-            if (card.transform.GetChild(0).GetComponent<CardViz>().getMorale() <= 0)  // For each card we check if it has a morale <= 0, to remove it from the game
-            {
-                GameObject[] playerList = GameObject.FindGameObjectsWithTag("PlayerObject");
-                foreach (GameObject player in playerList)
+            if (card.transform.parent.gameObject != GameObject.Find("OffGameSpace")) {
+                if (card.transform.GetChild(0).GetComponent<CardViz>().getMorale() <= 0)  // For each card we check if it has a morale <= 0, to remove it from the game
                 {
-                    player.GetComponent<PlayerConnection>().RpcCardRemoveFromGame(card.name);
+                    GameObject[] playerList = GameObject.FindGameObjectsWithTag("PlayerObject");
+                    foreach (GameObject player in playerList)
+                    {
+                        player.GetComponent<PlayerConnection>().RpcCardRemoveFromGame(card.GetComponent<NetworkIdentity>().netId);
+
+                    }
 
                 }
-
             }
         }
     }
     [ClientRpc]
-    public void RpcSyncCard(string cardName, int morale)  // Updating the card values on the clients
+    public void RpcSyncCard(NetworkInstanceId netid, int morale)  // Updating the card values on the clients
     {
         if (isLocalPlayer == false)
         {
             return;
         }
-        GameObject card = GameObject.Find(cardName);
+        GameObject card = ClientScene.FindLocalObject(netid);
         card.transform.GetChild(0).GetComponent<CardViz>().setMorale(morale);
     }
     [ClientRpc]
-    public void RpcCardRemoveFromGame(string cardName)  // Removing a card from the battlefield
+    public void RpcCardRemoveFromGame(NetworkInstanceId netid)  // Removing a card from the battlefield
     {
         if (isLocalPlayer == false)
         {
             return;
         }
-        GameObject card = GameObject.Find(cardName);
+        GameObject card = ClientScene.FindLocalObject(netid);
         card.transform.GetChild(0).GetComponent<CardViz>().inGame = false;  // The inGame variable is from now and on false
         card.transform.SetParent(GameObject.Find("OffGameSpace").transform);  // The removed card is physicaly placed on a game object out the camera's view
 
