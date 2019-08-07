@@ -54,7 +54,7 @@ public class PlayerConnection : NetworkBehaviour
             return;
         }
 
-        Invoke("setUpGame1", 1); // We call setUpGame with a small delay because RpcStartGame() is called right after the client joins the game we give the gameobjects some time to spwan spawned
+        Invoke("setUpGame1", 1); // We call setUpGame with a small delay because RpcStartGame() is called right after the client joins the game we give the gameobjects some time to spwan 
         Invoke("setUpGame2", 2); // Calling the set up for the CardZoom script, but with some delay, just to give some time for everycard to spawn so it can be found
                                  // Invoke("setUpCards", 1);
 
@@ -118,7 +118,10 @@ public class PlayerConnection : NetworkBehaviour
 
         GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().SetupOtherSceneButtons();
 
-
+        string cardToSpawn1="";
+        string cardToSpawn2 = "";
+        string cardToSpawn3 = "";
+        string cardToSpawn4 = "";
         if (isServer)
         {
 
@@ -133,6 +136,10 @@ public class PlayerConnection : NetworkBehaviour
 
             faction = "Romans"; // Setting the deck that is going to be spawned
 
+            cardToSpawn1 = "legioner";
+            cardToSpawn2 = "legioner";
+            cardToSpawn3 = "legioner";
+            cardToSpawn4 = "legioner";
 
         }
 
@@ -148,11 +155,17 @@ public class PlayerConnection : NetworkBehaviour
             Debug.Log("I'm the client");
 
             faction = "Celts";
+
+            cardToSpawn1 = "suebi";
+            cardToSpawn2 = "arverni";
+            cardToSpawn3 = "arverni";
+            cardToSpawn4 = "iceni";
         }
         NetworkInstanceId handNetId = GameObject.Find("MyHand").GetComponent<NetworkIdentity>().netId;
-        CmdSpawnMyUnit(faction, handNetId);
-        CmdSpawnMyUnit(faction, handNetId);
-        CmdSpawnMyUnit(faction, handNetId);
+        CmdSpawnMyUnit(faction, handNetId, cardToSpawn1);
+        CmdSpawnMyUnit(faction, handNetId, cardToSpawn2);
+        CmdSpawnMyUnit(faction, handNetId, cardToSpawn3);
+        CmdSpawnMyUnit(faction, handNetId, cardToSpawn4);
 
         //   GameObject.Find("MyConnection").GetComponent<NetworkIdentity>().RemoveClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
         //    GameObject.Find("MyConnection").GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
@@ -219,17 +232,25 @@ public class PlayerConnection : NetworkBehaviour
 
 
     [Command]
-    void CmdSpawnMyUnit(string faction, NetworkInstanceId handNetId)
+    void CmdSpawnMyUnit(string faction, NetworkInstanceId handNetId, string cardToSpawn)
     {
 
         GameObject myCard;
-        if (faction.Equals("Romans"))  // Deppending the faction server will spawn the right cards
+        if (cardToSpawn.Equals("legioner"))  // Deppending the faction server will spawn the right cards
         {
             myCard = Instantiate(Card);
         }
-        else if (faction.Equals("Celts"))
+        else if (cardToSpawn.Equals("arverni"))
         {
             myCard = Instantiate(Card2);
+        }
+        else if (cardToSpawn.Equals("suebi"))
+        {
+            myCard = Instantiate(Card3);
+        }
+        else if (cardToSpawn.Equals("iceni"))
+        {
+            myCard = Instantiate(Card4);
         }
         else { myCard = Instantiate(Card2); } // Does not going to happen. I just had to put an else clause so the compiler do not think that myCard might be unassigned
 

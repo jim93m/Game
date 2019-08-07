@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CardZoom : MonoBehaviour
 {
     
-    float speed = 3.5f; // Speed of the zooming action
+    float speed = 4.5f; // Speed of the zooming action
     public GameObject mainCamera ;
     Vector3 inFrontOfCameraPosition;
     Vector3 cardsBoardPosition;
@@ -24,7 +24,7 @@ public class CardZoom : MonoBehaviour
 
         performingZoom = false;
         zoomed = false;
-
+        
     }
 
     public void setCameraPosition()
@@ -96,7 +96,7 @@ public class CardZoom : MonoBehaviour
             zoomOut();
         }
 
-        if (Vector3.Distance(transform.position, inFrontOfCameraPosition) < 0.1f )
+        if (Vector3.Distance(transform.position, inFrontOfCameraPosition) < 0.9f )
         {   //  && performingZoom is a pesky trick to run the code below only one time. Unfortunatelly the way that the condition is set (by using '<') will be true multiple time as udate will fire every frame
             if (GetComponent<MultiplayerBehavior>().isLocalPlayers && performingZoom)  // With  && performingZoom we make sure that the code will execute only the first time it passes from the if above, as we set performingZoom = false afterwards.
             { // Check if the zoomed out card is local players, for not enabling draggable script to the enemy
@@ -105,7 +105,7 @@ public class CardZoom : MonoBehaviour
             performingZoom = false;            
         }
 
-        if (Vector3.Distance(transform.position, cardsBoardPosition) < 0.1f)  // When the distance between the zooming-out card and its starting position is very small, run the clean-up routine.
+        if (Vector3.Distance(transform.position, cardsBoardPosition) < 0.9f)  // When the distance between the zooming-out card and its starting position is very small, run the clean-up routine.
         { // To be sure of the time that the card's zoom has ended, we could check it's speed. But this would lead in a some seconds delay, as it's speed at the end of the zoom is very small but not zero for 2 seconds
 
             performingZoom = false;

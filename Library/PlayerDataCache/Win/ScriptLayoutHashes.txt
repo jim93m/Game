@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-C:/Users/Jim/Desktop/Game/Builds/Windows/GameV1.4/MyFirstGame.exe
+C:/Users/Jim/Desktop/Game/Builds/Windows/GameV1.0/MyFirstGame.exe
 SceneListBegin?
 Assets/Menu.unity
 Assets/_SCENE_.unity

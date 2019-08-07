@@ -99,6 +99,7 @@ MonoBehaviour:
   remainingMovement: 0
   isLocalPlayers: 0
   player: 
+  inGame: 0
   card: {fileID: 11400000, guid: 94aade9e0d4716745a5b1856abdac697, type: 2}
 --- !u!1 &7084053491407102502
 GameObject:

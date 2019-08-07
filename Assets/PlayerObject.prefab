@@ -80,6 +80,8 @@ MonoBehaviour:
   isHost: 0
   Card: {fileID: 7084053492771368080, guid: f4d1d0e4c00887c4e8e7bc1d09523d07, type: 3}
   Card2: {fileID: 7084053492771368080, guid: 763cf5a60fb183e4ba7e38246fb7b7d2, type: 3}
+  Card3: {fileID: 7084053492771368080, guid: 3f51bc922cb378c49b0ac78d7d03e1e6, type: 3}
+  Card4: {fileID: 7084053492771368080, guid: b40a74e49578c3e4e9135b3fae2a69f1, type: 3}
   currentState: 0
   turnNumber: 0
-  playerTurn: 0
+  localPlayerTurn: 0
